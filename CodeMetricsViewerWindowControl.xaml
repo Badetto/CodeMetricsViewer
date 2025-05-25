@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="CodeMetricsViewer.ToolWindow1Control"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="400">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Vertical" Grid.Row="0" Margin="0,0,0,10">
+            <UniformGrid Columns="2" Margin="0,0,0,10">
+                <Label Content="Function Line Threshold:" VerticalAlignment="Center" Foreground="White"/>
+                <TextBox x:Name="ThresholdBox" Width="80" Text="20"/>
+
+                <Label Content="Complexity Threshold:" VerticalAlignment="Center" Foreground="White"/>
+                <TextBox x:Name="ComplexityBox" Width="80" Text="10"/>
+
+                <Label Content="Keywords:" VerticalAlignment="Center" Foreground="White"/>
+                <TextBox x:Name="KeywordsBox" Width="200" Text="TODO,FIXME,HACK"/>
+            </UniformGrid>
+
+            <Button Content="🔍 Analyze" Width="100" HorizontalAlignment="Left" Click="Analyze_Click"/>
+        </StackPanel>
+
+        <GroupBox Grid.Row="1" Header="📊 Results" Foreground="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <TextBox x:Name="ResultBox"
+                         IsReadOnly="True"
+                         TextWrapping="Wrap"
+                         VerticalScrollBarVisibility="Auto"
+                         HorizontalScrollBarVisibility="Auto"
+                         FontFamily="Consolas"
+                         FontSize="13"
+                         Background="White"
+                         Foreground="Black"
+                         BorderThickness="1"
+                         Padding="5"/>
+            </ScrollViewer>
+        </GroupBox>
+    </Grid>
+</UserControl>
